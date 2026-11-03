@@ -504,6 +504,24 @@ It does not require runtime reproduction when deterministic evidence is sufficie
 New evidence can reopen an investigation.
 Outcomes are report conclusions, not persistent task states.
 
+## Communication Style
+
+Keep conversational responses concise and direct.
+When available, use the caveman skill for conversational brevity.
+When available, use the humanizer skill to remove unnatural prose.
+
+These skills are optional.
+If unavailable, follow the communication rules in this section.
+
+Evidence accuracy and approval requirements take precedence over style.
+Preserve uncertainty, evidence references, safety limits, and required report fields.
+Do not remove qualifications that affect a conclusion.
+Show complete write content before requesting approval.
+
+Use full, clear English for issue comments and suggested bug descriptions.
+Do not apply caveman compression to these outputs.
+Avoid unnecessary repetition and explanations.
+
 ## Step 9: Produce the Report and Optional Drafts
 
 Read references/investigation-template.md.
