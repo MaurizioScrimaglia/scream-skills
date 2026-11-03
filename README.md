@@ -11,6 +11,7 @@ The goal is simple: define useful capabilities once, then reuse them across comp
 | Skill | Category | Description |
 |---|---|---|
 | [scream-audit](skills/quality/scream-audit/SKILL.md) | Quality | Performs a comprehensive, evidence-based audit of a software application, website, service, or repository and produces a detailed professional assessment with findings, risks, strengths, and remediation priorities. |
+| [scream-issue-discovery](skills/quality/scream-issue-discovery/SKILL.md) | Quality | Investigates an explicitly requested Problem Report, searches a selected scope for duplicates, and validates the problem using available evidence. Requires the task GID and approval before every test or write. Produces a structured result and a handoff for confirmed problems without creating bugs or changing task state. |
 
 More skills will be added as they are designed and validated.
 
@@ -46,6 +47,14 @@ For example:
 Use scream-audit to audit this application.
 ```
 
+For Problem Report discovery, explicitly invoke the skill and provide the task GID:
+
+```text
+Use scream-issue-discovery to investigate Problem Report task GID <task-gid>.
+```
+
+The skill asks for the task GID if it is missing. It requires an explicit duplicate-search scope and a confirmed repository before the corresponding investigation. Every test and write requires separate approval. Comments and confirmed-problem handoffs are written in English. The investigation report uses the user's language.
+
 The exact invocation mechanism may vary by agent. The skill itself remains the source of truth for how the task should be performed.
 
 ## Repository Structure
@@ -56,10 +65,14 @@ Skills are grouped by category only when a category is actually needed.
 scream-skills/
 ├── skills/
 │   └── quality/
-│       └── scream-audit/
+│       ├── scream-audit/
+│       │   ├── SKILL.md
+│       │   └── references/
+│       │       └── report-template.md
+│       └── scream-issue-discovery/
 │           ├── SKILL.md
 │           └── references/
-│               └── report-template.md
+│               └── investigation-template.md
 ├── LICENSE
 └── README.md
 ```
